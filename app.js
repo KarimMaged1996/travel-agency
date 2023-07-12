@@ -51,6 +51,7 @@ const header = (function () {
   });
 })();
 
+// this module is for the popup logic
 const popUp = (function () {
   let moreOptions = document.querySelector('.moreOptions');
   let pop = document.querySelector('.popUp');
@@ -60,5 +61,76 @@ const popUp = (function () {
   });
   cancel.addEventListener('click', function () {
     pop.style.display = 'none';
+  });
+})();
+
+// this module will handle the checkin and checkout logic
+const form = (function () {
+  let date1, date2;
+  let inputs = document.querySelectorAll('input');
+  let checkin = inputs[2];
+  let checkout = inputs[3];
+  let nights = inputs[4];
+  let today = new Date();
+  date1 = today;
+
+  function getDays() {
+    if (date1 && date2) {
+      daysInMilliSeconds = date2 - date1;
+      days = daysInMilliSeconds / 86400000;
+      nights.value = Math.ceil(days);
+    }
+  }
+
+  checkin.addEventListener('change', function (e) {
+    let dateArr = e.target.value.split('-');
+    date1 = new Date(
+      Number(dateArr[0]),
+      Number(dateArr[1] - 1),
+      Number(dateArr[2])
+    );
+    if (date1 < today) {
+      date1 = today;
+      let year = `${today.getFullYear()}`;
+      let month = `${today.getMonth() + 1}`;
+      let day = `${today.getDate()}`;
+      month.length === 1 ? (month = `0${month}`) : null;
+      day.length === 1 ? (day = `0${day}`) : null;
+      e.target.value = `${year}-${month}-${day}`;
+    }
+    if (date2 < date1) {
+      date2 = date1;
+      checkout.value = checkin.value;
+    }
+    getDays();
+  });
+
+  checkout.addEventListener('change', function (e) {
+    let dateArr = e.target.value.split('-');
+    date2 = new Date(
+      Number(dateArr[0]),
+      Number(dateArr[1] - 1),
+      Number(dateArr[2])
+    );
+    if (date2 < date1) {
+      date2 = date1;
+      e.target.value = checkin.value;
+    }
+    getDays();
+  });
+
+  nights.addEventListener('change', function (e) {
+    let date = new Date(
+      date1.getFullYear(),
+      date1.getMonth(),
+      date1.getDate() + Number(e.target.value)
+    );
+    date2 = date;
+    let year = `${date.getFullYear()}`;
+    let month = `${date.getMonth() + 1}`;
+    let day = `${date.getDate()}`;
+    month.length === 1 ? (month = `0${month}`) : null;
+    day.length === 1 ? (day = `0${day}`) : null;
+    checkout.value = `${year}-${month}-${day}`;
   });
 })();

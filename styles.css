@@ -199,6 +199,13 @@ div.popUp input {
 .cancel:hover {
   cursor: pointer;
 }
+.error {
+  color: red;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-right: 5px;
+  display: none;
+}
 
 @media screen and (max-width: 900px) {
   .popUp {
