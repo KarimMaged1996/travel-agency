@@ -50,3 +50,15 @@ const header = (function () {
     });
   });
 })();
+
+const popUp = (function () {
+  let moreOptions = document.querySelector('.moreOptions');
+  let pop = document.querySelector('.popUp');
+  let cancel = document.querySelector('.cancel');
+  moreOptions.addEventListener('click', function () {
+    pop.style.display = 'block';
+  });
+  cancel.addEventListener('click', function () {
+    pop.style.display = 'none';
+  });
+})();

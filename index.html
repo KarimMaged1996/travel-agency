@@ -139,5 +139,105 @@
       <nav>Packages</nav>
       <nav>Offline Requests</nav>
     </div>
+
+    <!-- form -->
+    <div class="main">
+      <form>
+        <div class="formElem">
+          <label for="destination">Destination</label>
+          <input list="cities" id="destination" class="input" />
+          <datalist id="cities">
+            <option value="Cairo">Egypt (Cairo)</option>
+            <option value="Hurgada">Egypt (Hurgada)</option>
+            <option value="Paris">France (Paris)</option>
+            <option value="Miami">US (Miami)</option>
+            <option value="Florida">US (Florida)</option>
+          </datalist>
+        </div>
+        <div class="formElem">
+          <label for="hotel">Hotel Name</label>
+          <input type="text" id="hotel" class="input" />
+        </div>
+        <div class="formElem">
+          <label for="checkin">Check in</label>
+          <input type="date" id="checkin" class="input" />
+        </div>
+        <div class="formElem">
+          <label for="checkout">Check out</label>
+          <input type="date" id="checkout" class="input" />
+        </div>
+        <div class="formElem">
+          <label for="nights">Nights</label>
+          <input type="number" id="nights" class="input" />
+        </div>
+        <div class="formElem">
+          <label for="travelers">Travelers</label>
+          <select name="travelers" id="travelers" class="input">
+            <option>1 Room, 2 Adults, 1 children</option>
+          </select>
+        </div>
+        <div class="formElem">
+          <label for="nationality">Nationality</label>
+          <input list="nationality" class="input" />
+          <datalist id="nationality">
+            <option>&#127482;&#127480; American</option>
+            <option>&#127464;&#127462; Canadian</option>
+            <option>&#127466;&#127468; Egyptian</option>
+            <option>&#127467;&#127479; French</option>
+          </datalist>
+        </div>
+        <div class="formElem">
+          <input type="button" value="More options" class="btn moreOptions" />
+          <input type="submit" value="Search" class="btn" />
+        </div>
+      </form>
+      <div class="info">
+        <div class="infoUpper">
+          <h2>Partner With us</h2>
+          <ul>
+            <li>Add your property</li>
+            <li>White label Request</li>
+            <li>XMI API Request</li>
+            <li>Sign up for exclusive GSA</li>
+          </ul>
+        </div>
+        <div class="infoLower">
+          <h2>Special Deal On</h2>
+          <h4>EY | EK | RJ | BA</h4>
+          <ul>
+            <li>
+              Book Via <br />
+              www.nowworld.com
+            </li>
+            <li>
+              Offer Validity <br />
+              3 months valid on select destinations
+            </li>
+            <li>
+              For more dtails <br />
+              Contact: sales@nowworld.com
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="popUp">
+      <span class="cancel"> X </span>
+      <div>More Search options</div>
+      <div class="flex">
+        <div>
+          <label for="country">Country</label>
+          <input type="text" id="country" />
+        </div>
+        <div>
+          <label for="city">City</label>
+          <input type="text" id="city" />
+        </div>
+        <div>
+          <label for="currency">Currency</label>
+          <input type="text" id="currency" />
+        </div>
+      </div>
+    </div>
   </body>
 </html>
