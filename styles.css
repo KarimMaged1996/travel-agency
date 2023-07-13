@@ -158,6 +158,9 @@ ul {
   .info {
     display: none;
   }
+  .btn {
+    padding: 0;
+  }
 }
 
 .popUp {
