@@ -134,3 +134,19 @@ const form = (function () {
     checkout.value = `${year}-${month}-${day}`;
   });
 })();
+
+//change background photo module
+const photo = (function () {
+  let body = document.querySelector('body');
+  let photos = ['travel1.jpg', 'travel2.jpg'];
+  let i = 0;
+  function changeBackground() {
+    if (i < photos.length) {
+      console.log(i);
+      body.style.backgroundImage = `url('imgs/${photos[i]}')`;
+      i++;
+      i === photos.length ? (i = 0) : null;
+    }
+  }
+  setInterval(changeBackground, 10000);
+})();
